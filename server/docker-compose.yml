@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  rise:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/rise
+    pull_policy: build
+    working_dir: /usr/src/rise
+    command: [ "npm", "run", "start" ]
+    ports:
+      - "3005:3005"
+    environment:
+      NODE_ENV: production
